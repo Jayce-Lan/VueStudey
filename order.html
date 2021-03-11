@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>指令</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app1">
+
+        <!-- v-html -->
+        <!-- 当使用v-html指令时，元素中如果有网页元素，那将会被渲染 -->
+        <span v-html="word">{{word}}</span> <!--这里使用了v-html，文字被以标签的形式渲染到了网页中-->
+        {{word}}    <!--文本内容会被全部加载展示到网页中-->
+
+
+        <!-- v-on -->
+        <button v-on:click="test">点击</button>
+        <!-- .pervent属性，阻止默认事件，点击a标签将不会跳转 -->
+        <a href="https://www.baidu.com/" @click.prevent="test">点击</a>
+        <!-- .stop属性，阻止事件冒泡 -->
+        <div @click="test2">
+            <!-- 由于有.stop属性，因此事件不会冒泡至父元素 -->
+            <button @click.stop="test3">点击我</button>
+        </div>
+
+
+        <!-- 事件参数 -->
+        <!-- 默认传递事件参数 -->
+        <button @click="test4">点击</button>
+        <!-- 手动传递事件参数，传入的值为$event时，为传入事件参数 -->
+        <button @click="test5($event)">点击</button>
+
+    </div>
+    <script>
+        var app1 = new Vue({
+            el: "#app1",
+            data: {
+                word: "<h1 style='color: brown'>测试v-html指令</h1>",
+            },
+            methods: {
+                test() {
+                    console.log("Hello");
+                },
+                test2() {
+                    console.log("div click");
+                },
+                test3() {
+                    console.log("button click");
+                },
+                //此处e为事件参数，默认传递
+                test4(e) {
+                    console.log("Hello", e);
+                },
+                //手动传递事件参数
+                test5(e) {
+                    console.log("hello", e);
+                }
+            }
+        })
+    </script>
+</body>
+</html>

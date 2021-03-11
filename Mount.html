@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>延迟挂载</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>{{title}}</h1>
+        <ul>
+            <li v-for="item in products">品牌：{{item.name}} 库存：{{item.stock}}</li>
+        </ul>
+    </div>
+    <script>
+        //使用app.$mount("#app")可以实现延迟挂载
+        var app = new Vue({
+            data: {
+                title: "延迟挂载",
+                products: [
+                    {name: "iPhone", stock: 20},
+                    {name: "Huawei", stock: 20},
+                    {name: "Xiaomi", stock: 20},
+                ],
+            }
+        });
+
+        app.$mount("#app"); //不需要一开始就创建el，而是等待页面加载完毕后再进行挂载绑定
+    </script>
+</body>
+</html>

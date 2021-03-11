@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首个Vue页面</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>系统名称：{{title}}</h1>
+        <ul>
+            <li v-for="(item, index) in products">
+                名称：{{item.name}}
+                库存：
+                <button @click="changeStock(item, item.stock - 1)">-</button>
+                <span v-if="item.stock>0">{{item.stock}}</span>
+                <span v-else>无货</span>
+                <button @click="item.stock++">+</button>
+                <button @click="remove(index)">删除</button>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                title: "管理系统",
+                products: [
+                    {name: "iPhone", stock: 10},
+                    {name: "XiaoMi", stock: 20},
+                    {name: "Huawei", stock: 10},
+                ]
+            },
+            methods: {
+                remove(i) {
+                    //splice(index, num):删除index下标起的一共num个元素
+                    // console.log(this === app);
+                    this.products.splice(i, 1);
+                },
+                changeStock(product, newStock) {
+                    if (newStock < 0) {
+                        alert("商品库存不能小于0！");
+                        newStock = 0;
+                    }
+                    product.stock = newStock;
+                },
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 使用v-bind可以动态绑定元素的属性 -->
+        <img :src="img_url"
+                style="height: 100px"
+                v-show="isShow"/>
+        <button @click="isShow = !isShow">点击</button>
+    </div>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                img_url: "https://gimg2.baidu.com/image_search/src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20181209%2Fcd9eb28e2f374610a2c01391a0e24eb7.jpeg&refer=http%3A%2F%2F5b0988e595225.cdn.sohucs.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1618018603&t=55b8af044ef27fbad3465c2013980118",
+                isShow: true,
+            }
+        });
+    </script>
+</body>
+</html>
