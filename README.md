@@ -44,5 +44,38 @@
 
 
 
-## 计算属性
+# Vue计算属性
 
+> 在开发过程中，有些属性是需要通过其它属性的计算而得出的，此时就需要用到计算属性；计算属性与方法（*methods*）不同的是，计算属性存在缓存；而方法属性在data中一旦有一个参数变动时就会重新触发，不存在缓存
+
+#### 计算属性（*computed*）和方法（*methods*）的区别
+
+- 计算属性可以赋值，而方法不行
+- 计算属性会进行缓存，如果依赖不变，则直接使用缓存结果，不会重新计算
+- 凡是根据已有数据计算得到的数据的无参函数，都应该尽量写成计算属性，而不是方法
+
+> 实例
+
+```javascript
+computed: {
+    fullName() {
+        //只有当相关参数变动时，才会执行方法
+        return this.firstName + " " + this.lastName;
+    }
+
+    //上述方法的完整写法为：
+    fullName: {
+        get() {
+            return this.firstName + " " + this.lastName;
+        },
+        set(val) {
+            this.firstName = val[0];
+            this.lastName = val.substr(1);
+        },
+    },
+},
+```
+
+
+
+# Vue组件核心概念

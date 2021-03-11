@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计算属性</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p>first name:{{firstName}}</p>
+        <p>last name:{{lastName}}</p>
+        <!-- 在开发过程中，有些属性是需要通过其它属性的计算而得出的，此时就需要用到计算属性 -->
+<!--        <p>full name:{{getFullName()}}</p>-->
+<!--        <p>full name: {{fullName}}</p>-->
+        <input type="text" v-model="fullName">
+
+        <!-- 测试缓存 -->
+        <h1>{{count}}</h1>
+        <button @click="count++">+1</button>
+
+    </div>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                firstName: "Lan",
+                lastName: "Jayce",
+                count: 0,
+            },
+            computed: {
+                /*fullName() {
+                    //只有当相关参数变动时，才会执行方法
+                    console.log("fullName");
+                    return this.firstName + " " + this.lastName;
+                }*/
+
+                //计算属性的完整写法
+                fullName: {
+                    get() {
+                        return this.firstName + " " + this.lastName;
+                    },
+                    set(val) {
+                        this.firstName = val[0];
+                        this.lastName = val.substr(1);
+                    },
+                },
+            },
+            methods: {
+                getFullName() {
+                    //data中一旦存在数据变动，那么该方法就会被执行一次，不存在缓存
+                    console.log("getFullName");
+                    return this.firstName + " " + this.lastName;
+                }
+            }
+        })
+    </script>
+</body>
+</html>
