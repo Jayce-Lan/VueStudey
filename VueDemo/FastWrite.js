@@ -1,5 +1,4 @@
 //速写属性
-
 var name = "Jim";
 var age = 20;
 
@@ -19,8 +18,22 @@ var person3 = {
     name,
     age,
     sayHello() {
-        alert("你好");
+        console.log("你好");
     }
 }
 
 person3.sayHello();
+
+
+//箭头函数
+var sum = function (a, b) {
+    return a + b;
+}
+
+console.log(sum(1, 3));
+//使用箭头函数可以写成：
+var sum2 = (a, b) => {
+    return a + b;
+}
+
+console.log(sum2(1, 3));

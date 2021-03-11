@@ -79,3 +79,127 @@ computed: {
 
 
 # Vue组件核心概念
+
+## 模块化/组件化概念
+
+> 正常情况下，在同一个界面中导入不同的js文件，由于没有模块化，会导致变量污染等情况；而模块化可以解决变量污染这个情况
+
+### 变量污染
+
+如下面的例子，我们正常导入两份js文件
+
+```javascript
+/*******************main.js*******************/
+var a = 2;
+var test = function () {
+    console.log("main.js");
+}
+
+/*******************util.js*******************/
+var a = 1;
+var test = function () {
+    console.log("util.js");
+}
+
+function sum(a, b) {
+    return a + b;
+}
+```
+
+在页面中导入两份文件
+
+```html
+<body>
+    <script src="./util.js"></script>
+    <script src="./main.js"></script>
+</body>
+```
+
+我们在控制台中调用*a*与*test*两个同名属性，可以发现的是**由于同名**，*util.js* 的属性被 *main.js* 的属性**覆盖了**
+
+
+
+### 模块化处理*module*
+
+上述的js文件引入时，*type* 当中加入一个 *module* 属性可以解决变量污染的问题
+
+```html
+<body>
+    <script src="./util.js" type="module"></script>
+    <script src="./main.js" type="module"></script>
+</body>
+```
+
+
+
+### 模块化方法共享
+
+> 当我们在一个模块中定义了一个方法，而希望其它模块也能使用的时候，我们需要将这个方法导出
+
+#### *export default* / *import...from...* 关键字
+
+> 导出/导入 模块中的方法
+
+我们需要将上述的js文件改造
+
+```javascript
+/******************util.js******************/
+var a = 1;
+var test = function () {
+    console.log("util.js");
+}
+
+//声明一个可以被导出使用的方法
+export default function sum(a, b) {
+    return a + b;
+}
+
+/******************main.js******************/
+//声明导入外部js的方法
+import sum from "./util.js"    //这里双引号中存放的是相对路径的文件
+
+var a = 2;
+var test = function () {
+    console.log("main.js");
+}
+console.log(a);
+test();
+
+console.log("main导入util中的sum方法：" + sum(3, 5));
+```
+
+#### 导出多个方法
+
+上述方法中，我们提及了导出单个方法的方式：
+
+```javascript
+export default function(args) {
+    /*方法体*/
+}
+```
+
+当我们需要导出多个方法时，我们可以使用如下方式：
+
+```javascript
+export default {
+    fun1() {
+        /*方法体*/
+    },
+    func2() {
+        /*方法体*/
+    }
+}
+```
+
+
+
+### 组件开发
+
+组件开发步骤
+
+- 创建组件
+- 注册组件
+  - 全局组件
+  - 局部组件
+- 应用组件
+

@@ -2,7 +2,7 @@
 /shelf/
 /workspace.xml
 # Datasource local storage ignored files
-/../../../../../:\webProject\vueProject\vueStudy\.idea/dataSources/
+/../../../../../../:\webProject\vueProject\vueStudy\VueDemo\.idea/dataSources/
 /dataSources.local.xml
 # Editor-based HTTP Client requests
 /httpRequests/
