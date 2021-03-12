@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+
+</div>
+<script>
+    var CompTitle = {
+        data() {
+            return {
+                title: "库存管理系统"
+            };
+        },
+        template: `<h1>{{title}}</h1>`,
+    };
+
+    //局部注册组件
+
+
+    var vm = new Vue({
+        el: "#app",
+        components: {
+            CompTitle,   //属性名为组件的名称，属性值为组件的配置
+        },
+        template: `<div>
+                            <comp-title/>
+                        </div>`,
+    });
+</script>
+</body>
+</html>

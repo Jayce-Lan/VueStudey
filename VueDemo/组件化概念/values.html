@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+
+    </div>
+    <script>
+        var MyComp = {
+            props: ["p1", "p2", "p3"],
+            //和vue一样，使用组件时也会创建组件的实例
+            //组件属性会被提取到组件实例中，因此也可以在组件中使用
+            template: `<div>{{p1}}-{{p2}}-{{p3}}</div>`
+        };
+
+        var app = new Vue({
+            el: "#app",
+            data() {
+                return {
+                    a: "test1",
+                }
+            },
+            components: {
+                MyComp,
+            },
+            template: `<div><my-comp :p1="a" :p2="'test2'" p3="test3"/></div>`
+        });
+    </script>
+</body>
+</html>
