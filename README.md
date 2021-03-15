@@ -413,3 +413,153 @@ var app = new Vue({
   - `App.js`----------【根组件，负责整个网页组件调用与协调】
   - components【组件文件夹，负责存放组件】
     - `Products.js`----------【商品列表组件】
+
+
+
+# Vue-Cli
+
+## 配置源地址
+
+在命令行输入如下语句
+
+```sh
+npm config set registry http://registry.npm.taobao.org/
+```
+
+随后输入如下语句，检查源地址
+
+```shell
+npm config get registry
+```
+
+
+
+## vue-cli全局安装
+
+使用如下命令安装vue脚手架（注意，**这里需要以管理员权限运行安装**）
+
+```shell
+npm install -g @vue/cli
+```
+
+安装完成后使用如下命令检查是否安装成功
+
+```shell
+vue --version
+```
+
+### vue安装却无法检查到的情况
+
+在命令行内键入如下语句
+
+```shell
+npm config list
+```
+
+随后会出现以下情况
+
+```shell
+...
+; userconfig C:\Users\Administrator\.npmrc
+cache = "D:\\Program Files\\nodejs\\node_cache"
+prefix = "D:\\Program Files\\nodejs\\node_global"
+registry = "http://registry.npm.taobao.org/"
+...
+```
+
+找到prefix的文件夹，如果该路径下有vue的文件，那么将该路径配置到环境变量中
+
+
+
+## vue-cli搭建工程
+
+### 创建工程
+
+首先，在工程文件夹中键入如下命令
+
+```shell
+vue create 工程名称
+```
+
+随后选择最后一项（手动创建vue工程）
+
+```shell
+Manually select features
+```
+
+随后选择如下命令（空格取消/选中）
+
+```shell
+? Check the features needed for your project:
+>( ) Choose Vue version
+ (*) Babel
+ ( ) TypeScript
+ ( ) Progressive Web App (PWA) Support
+ ( ) Router
+ ( ) Vuex
+ ( ) CSS Pre-processors
+ ( ) Linter / Formatter
+ ( ) Unit Testing
+ ( ) E2E Testing  
+```
+
+*Bable为兼容性选项*
+
+集成文件的选择
+
+```shell
+In dedicated config files	#集成到多个文件
+> In package.json    		#集成到单个文件（选择该选项）
+```
+
+随后等待工程的搭建
+
+
+
+### vue-cli搭建工程的主要文件夹
+
+**bili-app**
+
+- node_modules【工程脚手架的所有依赖包】
+- public【页面模板文件】
+  - `favicon.icon`----------【页面图标】
+  - `index.html`----------【模板页面】
+- src【源代码目录】
+  - assets
+  - components
+  - `App.vue`
+  - `main.js`----------【启动文件】
+- `package.json`----------【工程描述】
+
+
+
+### 工程的运行与打包
+
+> 当我们运行 *npm run* 的时候我们会运行工程，随着后面的后缀我们会做相应的操作
+
+运行工程
+
+```shell
+npm run serve
+```
+
+打包工程
+
+```shell
+npm run build
+```
+
+*工程打包后会在工程下创建一个 dist 文件夹，该文件夹中就会存放着最原始的前端脚本*
+
+*该脚本可以在服务器上直接运行*
+
+
+
+#### 使用npm运行服务器依赖
+
+> 安装该依赖后，我们可以在任意目录用服务器运行*html*文件
+
+```shell
+npm install -g http-server
+```
+
