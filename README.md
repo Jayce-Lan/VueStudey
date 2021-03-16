@@ -413,6 +413,8 @@ var app = new Vue({
   - `App.js`----------【根组件，负责整个网页组件调用与协调】
   - components【组件文件夹，负责存放组件】
     - `Products.js`----------【商品列表组件】
+  - services【远程数据服务文件夹】
+    - 
 
 
 
@@ -526,7 +528,8 @@ In dedicated config files	#集成到多个文件
   - `index.html`----------【模板页面】
 - src【源代码目录】
   - assets
-  - components
+  - components【存放组件的文件夹】
+    - `Item.vue`----------【菜单栏组件】
   - `App.vue`
   - `main.js`----------【启动文件】
 - `package.json`----------【工程描述】
@@ -561,5 +564,52 @@ npm run build
 
 ```shell
 npm install -g http-server
+```
+
+安装后进入目录，输入以下命令行即可开始在服务器运行html
+
+```shell
+http-server
+```
+
+
+
+## vue-cli开发
+
+### 插槽功能
+
+`<slot/>`
+
+> 当子组件使用插槽时，父组件调用时可以在其插槽内部自定义任意内容
+
+```vue
+/********************子组件********************/
+<div class="item">
+    <!-- 插槽，可以接纳调用该组件属性的任何参数 -->
+    <slot/>
+</div>
+
+/********************父组件********************/
+<div id="app">
+    <item>
+        <h1>Test</h1>
+        <span>漫画</span>
+    </item>
+</div>
+```
+
+如上述所说，子组件标签中的元素都会被渲染到子组件中
+
+
+
+### 父子组件之间的通信
+
+```shell
+		父组件
+		|	^
+	props	|
+		|	event
+		v	|
+		子组件
 ```
 
