@@ -613,3 +613,13 @@ http-server
 		子组件
 ```
 
+
+
+### 网络通信
+
+需要在项目目录下安装resource
+
+```shell
+npm install vue-resource --save
+```
+
