@@ -3,6 +3,9 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import VueResource from 'vue-resource'
+
+Vue.use(VueResource)  //使用npm install vue-resource --save安装resource，随后调用，用于做http请求
 
 Vue.config.productionTip = false
 
