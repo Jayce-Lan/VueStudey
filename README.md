@@ -481,6 +481,10 @@ registry = "http://registry.npm.taobao.org/"
 
 ```shell
 vue create 工程名称
+
+##################################
+
+vue init webpack 工程名称	#该方法更为常见
 ```
 
 随后选择最后一项（手动创建vue工程）
