@@ -12,6 +12,10 @@
                 <td>{{blog.id}}</td>
 <!--                <td @click="showBlog(blog.id)">{{blog.title}}</td>-->
                 <td>
+                    <!--
+                        发起路由请求
+                        @name: 'Blog' 路由地址，在src/router/index.js中被注册的路由地址
+                     -->
                     <router-link :to="{name: 'Blog', query: {id: blog.id}}">
                         {{blog.title}}
                     </router-link>
