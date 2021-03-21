@@ -6,6 +6,7 @@ import Blog from '@/components/Blog'
 import TwoWayBinding from '@/components/TwoWayBinding'
 import TestForm from '@/components/TestForm'
 import FormSubmit from '@/components/FormSubmit'
+import SayHiFromMinxin from '@/components/SayHiFromMinxin'
 
 Vue.use(Router)
 
@@ -40,6 +41,11 @@ export default new Router({
             path: '/formsubmit',
             name: 'FormSubmit',
             component: FormSubmit
+        },
+        {
+            path: '/sayhifromminxin',
+            name: 'SayHiFromMinxin',
+            component: SayHiFromMinxin
         }
     ]
 })
