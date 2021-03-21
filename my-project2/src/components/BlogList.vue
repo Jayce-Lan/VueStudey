@@ -7,18 +7,20 @@
                 <span>created_at: {{blog.created_at}}</span>
             </li>
         </ul>-->
+        <my-logo :title="title"></my-logo>
+
         <table>
             <tr v-for="blog in blogs" :key="blog.id">
                 <td>{{blog.id}}</td>
-<!--                <td @click="showBlog(blog.id)">{{blog.title}}</td>-->
+                <td @click="showBlog(blog.id)">{{blog.title}}</td>
                 <td>
                     <!--
                         发起路由请求
                         @name: 'Blog' 路由地址，在src/router/index.js中被注册的路由地址
                      -->
-                    <router-link :to="{name: 'Blog', query: {id: blog.id}}">
+<!--                    <router-link :to="{name: 'Blog', query: {id: blog.id}}">
                         {{blog.title}}
-                    </router-link>
+                    </router-link>-->
                 </td>
                 <td>{{blog.created_at}}</td>
             </tr>
@@ -27,12 +29,17 @@
 </template>
 
 <script>
+import MyLogo from '@/components/MyLogo'
+
 export default {
     data() {
         return {
             title: '博客列表页',
-            blogs: []
+            blogs: [],
         }
+    },
+    components: {
+        MyLogo,
     },
     mounted() {
         //发起get请求
