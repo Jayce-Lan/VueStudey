@@ -7,6 +7,7 @@ import TwoWayBinding from '@/components/TwoWayBinding'
 import TestForm from '@/components/TestForm'
 import FormSubmit from '@/components/FormSubmit'
 import SayHiFromMinxin from '@/components/SayHiFromMinxin'
+import ComputedProperties from '@/components/ComputedProperties'
 
 Vue.use(Router)
 
@@ -46,6 +47,11 @@ export default new Router({
             path: '/sayhifromminxin',
             name: 'SayHiFromMinxin',
             component: SayHiFromMinxin
+        },
+        {
+            path: '/computedproperties',
+            name: 'ComputedProperties',
+            component: ComputedProperties
         }
     ]
 })
