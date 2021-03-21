@@ -627,3 +627,69 @@ http-server
 npm install vue-resource --save
 ```
 
+
+
+### Vuex
+
+> 管理全局变量，需要安装并配置
+
+#### 安装vuex
+
+录入以下命令安装vuex
+
+```shell
+npm install vuex --verbose
+#--verbose 可以查看版本号
+```
+
+​	
+
+修改 *package.json* 添加依赖
+
+```json
+"dependencies": {
+    "vue": "^2.5.2",
+    "vue-router": "^3.0.1",
+    "vuex": "^3.6.2"
+  },
+```
+
+**注意**：如果使用了上面的命令行，那么将不需要手动添加此步骤
+
+
+
+#### 配置vuex
+
+在 *src* 目录下创建 *vuex* 文件夹，并创建 *store.js* 文件；该文件配置如下
+
+```javascript
+import Vue from "vue";
+import Vuex from "vuex";
+
+//后续需要用到的counter状态
+import counter from "@/vuex/modules/counter"
+
+Vue.use(Vuex);
+
+const debug = process.env.NODE_ENV !== 'production';
+
+export default new Vuex.Store({
+    modules: {
+        counter,        //需要管理的modules都在这里声明
+    },
+    strict: debug,
+    middlewares: []
+})
+```
+
+
+
+随后的配置需要在 *vuex* 的文件夹下进行，主要目录如下：
+
+**vuex**
+
+- modules
+  - `counter.js`
+- `mutation_types.js`
+- `store.js`
+
