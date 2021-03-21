@@ -24,6 +24,10 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 
 ## 项目主要目录
 
+**config**
+
+- `index.js`----------【对自定义请求做一些处理】
+
 **src**
 
 - components【用于存放项目组件】

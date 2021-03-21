@@ -8,6 +8,7 @@ import TestForm from '@/components/TestForm'
 import FormSubmit from '@/components/FormSubmit'
 import SayHiFromMinxin from '@/components/SayHiFromMinxin'
 import ComputedProperties from '@/components/ComputedProperties'
+import WatchedProperty from '@/components/WatchedProperty'
 
 Vue.use(Router)
 
@@ -52,6 +53,11 @@ export default new Router({
             path: '/computedproperties',
             name: 'ComputedProperties',
             component: ComputedProperties
+        },
+        {
+            path: '/watchedproperty',
+            name: 'WatchedProperty',
+            component: WatchedProperty
         }
     ]
 })
