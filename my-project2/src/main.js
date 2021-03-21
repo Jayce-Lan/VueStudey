@@ -7,14 +7,15 @@ import VueResource from 'vue-resource'
 
 Vue.config.productionTip = false
 
+//Vue发送或接收请求所需的步骤
 Vue.use(VueResource)
 //允许发起post请求
 Vue.http.options.emulateJSON = true
 
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
-  router,
-  components: { App },
-  template: '<App/>'
+    el: '#app',
+    router,
+    components: { App },
+    template: '<App/>'
 })

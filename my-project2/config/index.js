@@ -10,7 +10,7 @@ module.exports = {
         assetsSubDirectory: 'static',
         assetsPublicPath: '/',
 
-        //API请求
+        //API请求，在请求时，自定义的"api"字符串进行处理
         proxyTable: {
             '/api': {
                 target: 'http://siwei.me', //将字符串的"api"转发到该请求
