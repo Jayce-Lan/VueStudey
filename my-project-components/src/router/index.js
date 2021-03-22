@@ -5,6 +5,7 @@ import TestComponents from "@/components/TestComponents";
 import ShowCounter1 from "@/components/ShowCounter1";
 import ShowCounter2 from "@/components/ShowCounter2";
 import VOnDemo from "@/components/VOnDemo";
+import SCSSDemo from "@/components/SCSSDemo"
 
 Vue.use(Router)
 
@@ -34,6 +35,11 @@ export default new Router({
             path: '/v_on_demo',
             name: 'VOnDemo',
             component: VOnDemo
+        },
+        {
+            path: '/scss_demo',
+            name: 'SCSSDemo',
+            component: SCSSDemo
         }
     ]
 })
