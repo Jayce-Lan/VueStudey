@@ -693,3 +693,13 @@ export default new Vuex.Store({
 - `mutation_types.js`
 - `store.js`
 
+
+
+### Vue生命周期
+
+- *created* 创建好了DOM
+- *mounted*  页面基本准备好了
+- *update*  手动触发操作
+- *destroyed*  销毁
+
+其中，1、3、4步骤为自动触发，每一步都有对应的 *beforeXXX* 方法，因此，我们一般使用 *mounted* 作为页面初始化执行的方法
