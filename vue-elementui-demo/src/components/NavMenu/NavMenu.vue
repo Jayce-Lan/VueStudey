@@ -15,14 +15,19 @@
 
 <script>
 export default {
+    data() {
+        return {
+            selectId: null, //被选择的id
+        }
+    },
     props: {
         title: String,
-        items: []
+        items: [],
     },
     methods: {
         handClick(value) {
-            this.$emit("active")
-            console.log(value);
+            this.selectId = value;
+            this.$emit("active", this.selectId);
         }
     }
 }

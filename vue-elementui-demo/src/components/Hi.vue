@@ -30,8 +30,8 @@ export default {
         }
     },
     methods: {
-        clickNav() {
-            // console.log(value);
+        clickNav(value) {
+            console.log(value);
         }
     }
 }
