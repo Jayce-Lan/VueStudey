@@ -4,7 +4,7 @@
             <el-header style="background: brown">Header</el-header>
             <el-container>
                 <el-aside width="200px">
-                    <NavMenu :items="testValue" :title="'标题'" :active="clickNav"></NavMenu>
+                    <NavMenu :items="testValue" :title="'标题'" @active="clickNav"></NavMenu>
                 </el-aside>
                 <el-main style="background: darkgray">Main</el-main>
             </el-container>
